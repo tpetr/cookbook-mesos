@@ -20,7 +20,7 @@ include_recipe "python"
 include_recipe "build-essential"
 
 # The list is necessary and sufficient?
-["unzip", "autotools-dev", "libtool", "libltdl-dev", "autopoint", "autoconf", "automake", "libcurl4-gnutls-dev", "libcurl4-openssl-dev", "python-dev", "libsasl2-dev"].each do |p|
+["unzip", "autotools-dev", "libtool", "libltdl-dev", "autopoint", "autoconf", "libcurl4-gnutls-dev", "libcurl4-openssl-dev", "python-dev", "libsasl2-dev"].each do |p|
   package p do
     action :install
   end
