@@ -20,11 +20,11 @@ include_recipe "python"
 include_recipe "build-essential"
 
 # The list is necessary and sufficient?
-["unzip", "autotools-dev", "libtool", "libltdl-dev", "autopoint", "autoconf", "libcurl4-gnutls-dev", "libcurl4-openssl-dev", "python-dev", "libsasl2-dev"].each do |p|
-  package p do
-    action :install
-  end
-end
+#["unzip", "autotools-dev", "libtool", "libltdl-dev", "autopoint", "autoconf", "libcurl4-gnutls-dev", "libcurl4-openssl-dev", "python-dev", "libsasl2-dev"].each do |p|
+#  package p do
+#    action :install
+#  end
+#end
 
 
 remote_file "#{Chef::Config[:file_cache_path]}/mesos-#{version}.zip" do
@@ -47,6 +47,20 @@ end
 bash "building mesos from source" do
   cwd   File.join("#{node[:mesos][:home]}", "mesos")
   code  <<-EOH
+    apt-get update
+    apt-get -y install \
+        autoconf \
+        g++-4.4 \
+        git \
+        libcurl4-gnutls-dev \
+        libtool \
+        make \
+        python-dev
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.4 100
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 100
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 50
+    update-alternatives --install /usr/bin/cpp cpp-bin /usr/bin/cpp-4.4 100
+    update-alternatives --install /usr/bin/cpp cpp-bin /usr/bin/cpp-4.6 50
     pwd
     env
     ./bootstrap
