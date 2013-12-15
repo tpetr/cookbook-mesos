@@ -46,8 +46,9 @@ end
 bash "building mesos from source" do
   cwd   File.join("#{node[:mesos][:home]}", "mesos")
   code  <<-EOH
-    ./bootstrap
-    ./configure --prefix=#{prefix}
+    pwd
+    sh -x bootstrap
+    sh -x configure --prefix=#{prefix}
     make
   EOH
   action :run
