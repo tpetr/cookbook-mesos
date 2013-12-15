@@ -48,6 +48,7 @@ bash "building mesos from source" do
   cwd   File.join("#{node[:mesos][:home]}", "mesos")
   code  <<-EOH
     pwd
+    env
     ./bootstrap
     rm -rf build
     mkdir build
