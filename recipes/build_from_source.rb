@@ -37,6 +37,7 @@ bash "extracting mesos to #{node[:mesos][:home]}" do
   cwd    "#{node[:mesos][:home]}"
   code   <<-EOH
     unzip -o #{Chef::Config[:file_cache_path]}/mesos-#{version}.zip -d ./
+    rm -rf mesos
     mv mesos-#{version} mesos
   EOH
   action :run
