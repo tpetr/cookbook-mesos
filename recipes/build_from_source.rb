@@ -50,7 +50,7 @@ bash "building mesos from source" do
     which libtoolize
     pwd
     env
-    (./bootstrap) || true
+    ./bootstrap || true
     ./bootstrap
     rm -rf build
     mkdir build
