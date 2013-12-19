@@ -8,7 +8,7 @@
 #
 version = node[:mesos][:version]
 download_url = "http://downloads.mesosphere.io/master/ubuntu/12.04/mesos_#{version}_amd64.deb"
-installed = File.exist?(File.join(prefix, "sbin", "mesos-master"))
+installed = File.exist?("/usr/local/sbin/mesos-master")
 
 if installed then
   Chef::Log.info("Mesos is already installed!! Instllation will be skipped.")

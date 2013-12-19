@@ -1,12 +1,6 @@
 default[:mesos] = {
-  :build_from_source => false,
   :version => "0.14.2",
-  :prefix  => "/usr/local",
-  :home => "/opt",
   :cluster_name => "MyCluster",
-  :build   => {
-    :skip_test => true
-  },
   :master_ips => [],
   :slave_ips  => [],
   :master  => {
