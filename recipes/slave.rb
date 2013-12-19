@@ -8,7 +8,7 @@
 #
 
 deploy_dir = File.join(prefix, "var", "mesos", "deploy")
-installed = File.exists?(File.join(prefix, "sbin", "mesos-master"))
+installed = File.exists?("/usr/local/sbin/mesos-slave")
 
 if !installed then
   include_recipe "mesos::install_from_mesosphere"
