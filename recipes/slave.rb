@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deploy_dir = File.join(prefix, "var", "mesos", "deploy")
+deploy_dir = File.join("var", "mesos", "deploy")
 installed = File.exists?("/usr/local/sbin/mesos-slave")
 
 if !installed then
