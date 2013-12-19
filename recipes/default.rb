@@ -7,5 +7,5 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "mesos::build_from_source"
+include_recipe "mesos::install_from_mesosphere"
 
