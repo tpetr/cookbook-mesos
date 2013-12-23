@@ -20,6 +20,10 @@ remote_file "#{Chef::Config[:file_cache_path]}/mesos_#{version}.deb" do
   not_if { installed==true }
 end
 
+apt_package "java7-runtime-headless" do
+	action :install
+end
+
 dpkg_package "mesos" do
 	source "#{Chef::Config[:file_cache_path]}/mesos_#{version}.deb"
 	action :install
