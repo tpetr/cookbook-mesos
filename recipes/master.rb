@@ -7,11 +7,17 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deploy_dir = "/var/mesos/deploy"
+deploy_dir = node[:deploy_dir]
 installed = File.exists?("/usr/local/sbin/mesos-master")
 
 if !installed then
   include_recipe "mesos::install_from_mesosphere"
+end
+
+directory deploy_dir do
+  owner "root"
+  group "root"
+  action :create
 end
 
 template File.join(deploy_dir, "masters") do

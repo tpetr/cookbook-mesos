@@ -14,6 +14,12 @@ if !installed then
   include_recipe "mesos::install_from_mesosphere"
 end
 
+directory deploy_dir do
+  owner "root"
+  group "root"
+  action :create
+end
+
 template File.join(deploy_dir, "mesos-deploy-env.sh") do
   source "mesos-deploy-env.sh.erb"
   mode 644

@@ -13,4 +13,5 @@ default[:mesos] = {
   },
   :ssh_opts => "-o StrictHostKeyChecking=no -o ConnectTimeout=2",
   :deploy_with_sudo => "1",
+  :deploy_dir => "/var/mesos/deploy",
 }
