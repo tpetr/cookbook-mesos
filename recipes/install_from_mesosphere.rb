@@ -24,6 +24,11 @@ apt_package "java7-runtime-headless" do
 	action :install
 end
 
+# TODO: figure out why i have to do this...
+link "/usr/lib/libjvm.so" do
+	to "/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server/libjvm.so"
+end
+
 dpkg_package "mesos" do
 	source "#{Chef::Config[:file_cache_path]}/mesos_#{version}.deb"
 	action :install
