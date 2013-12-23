@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deploy_dir = File.join("var", "mesos", "deploy")
+deploy_dir = "/var/mesos/deploy"
 installed = File.exists?("/usr/local/sbin/mesos-master")
 
 if !installed then
