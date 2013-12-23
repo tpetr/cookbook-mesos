@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-deploy_dir = node[:deploy_dir]
+deploy_dir = node[:mesos][:deploy_dir]
 installed = File.exists?("/usr/local/sbin/mesos-master")
 
 if !installed then
